@@ -2,7 +2,7 @@
 
 unzip amq-broker-operator-<amq-version>-ocp-install-examples-<rhel-version>.zip -d ~/Desktop/spring-messaging/
 
-cd ~/Desktop/spring-messaging/amq-broker-operator*
+ cd ~/Desktop/spring-openshift/spring-messaging/amq-broker-operator*
 
 
 
@@ -60,11 +60,12 @@ oc create -f deploy/operator.yaml
 ### DEPLOY ACTIVEMQ BROKER RESOURCE
 oc create -f deploy/crs/broker_activemqartemis_cr.yaml
 # or
-oc create -f amq.yml # In spring-messaging project
+oc create -f ../amq.yml # In spring-messaging project
 
 
 
 ### DEPLOY SPRING BOOT APP
+cd ..
 mvn package oc:deploy -Popenshift -DskipTests
 
 
